@@ -1,0 +1,10 @@
+{
+  "EV_Sales": [
+    {"year": 2015, "EVs_sold": 5000},
+    {"year": 2016, "EVs_sold": 12000},
+    {"year": 2017, "EVs_sold": 25000},
+    {"year": 2018, "EVs_sold": 50000},
+    {"year": 2019, "EVs_sold": 100000},
+    {"year": 2020, "EVs_sold": 200000}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Market_Share": [
+    {"Country": "USA", "Share": 15.2},
+    {"Country": "China", "Share": 18.3},
+    {"Country": "Germany", "Share": 7.5},
+    {"Country": "UK", "Share": 6.8},
+    {"Country": "Japan", "Share": 4.9},
+    {"Country": "Canada", "Share": 3.7},
+    {"Country": "Australia", "Share": 2.9}
+  ]
+}

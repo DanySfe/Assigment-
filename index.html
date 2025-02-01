@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>The Rise of Electric Vehicles in Canada</h1>
+    </header>
+    <section id="introduction">
+        <p>
+            This project explores the growth of electric vehicle (EV) sales in Canada over recent years. 
+            The data visualization below illustrates the trend in EV sales from 2015 to 2020.
+        </p>
+    </section>
+    <section id="charts">
+        <p style="font-size: 30px;">
+            The data shows a significant increase in EV sales over the years. 
+            The trend indicates a growing adoption of electric vehicles, driven by advancements in technology 
+            and increased environmental awareness.
+            
+                This chart illustrates the rapid increase in EV sales from 2000 to 2025, 
+                showing significant growth as electric vehicles become more mainstream. 
+                It highlights key milestones where industry innovations and government incentives 
+                contributed to widespread adoption.
+        
+        </p>
+        <h2 style="font-size: 45px; font-weight: bold;">EV Sales Increase Over the Years</h2>
+      
+        <div class="chart-container">
+            <canvas id="salesChart" width="2000" height="600"></canvas>
+        </div>
+    </section>
+    <section id="charts" style="margin-top: 50px;">
+        <p class="pie-chart-description" style="font-size: 30px;">
+            This pie chart provides a visual representation of the market share of leading EV manufacturers. 
+            It highlights Tesla's dominance, with strong competition from BMW and General Motors, 
+            showcasing industry segmentation and competitive dynamics.
+        </p>
+        <div class="chart-container">
+            <h2 style="font-size: 45px; font-weight: bold;"> Share of the market </h2>
+            <canvas id="pieChart" width="1800" height="1400"></canvas>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <script>
+        // Get canvas element
+        const ctx = document.getElementById('salesChart').getContext('2d');
+
+        // Define chart data
+        const data = {
+            labels: ['2000', '2005', '2010', '2015', '2020', '2025'],
+            datasets: [{
+                label: 'Sales Units',
+                data: [500, 1000, 5000, 20000, 100000, 500000],
+                borderColor: 'rgba(54, 162, 235, 1)', // Blue line
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Light blue fill
+                borderWidth: 3,
+                pointRadius: 5,
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                fill: true,
+                tension: 0.4 // Smooth curve
+            }]
+        };
+
+        // Define chart configuration
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sales Units'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString() + ' units'; // Format numbers
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.raw.toLocaleString() + ' units';
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render the chart
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>
